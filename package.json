@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/hmcts/cnp-pester-node-chromium#readme",
   "dependencies": {
+    "debug": "^4.1.1",
     "puppeteer-core": "^1.13.0"
   }
 }
