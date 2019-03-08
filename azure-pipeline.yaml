@@ -10,4 +10,7 @@ jobs:
         inputs:
           targetType: inline
           script: |
-            pwsh -Command "Install-Module Pester -Force -Scope CurrentUser; Invoke-Pester @{Path= '$(Build.SourcesDirectory)/*.tests.ps1'; Parameters = @{AgentTempDirectory='$(Agent.TempDirectory)'}}"
+            pwsh -Command " \
+              Install-Module Pester -Force -Scope CurrentUser; \
+              Invoke-Pester @{Path= '$(Build.SourcesDirectory)/*.tests.ps1'; Parameters = @{AgentTempDirectory='$(Agent.TempDirectory)'}} \
+              "
