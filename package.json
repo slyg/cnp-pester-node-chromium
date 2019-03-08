@@ -1,0 +1,22 @@
+{
+  "name": "pester-node-chromium",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hmcts/cnp-pester-node-chromium.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hmcts/cnp-pester-node-chromium/issues"
+  },
+  "homepage": "https://github.com/hmcts/cnp-pester-node-chromium#readme",
+  "dependencies": {
+    "puppeteer-core": "^1.13.0"
+  }
+}

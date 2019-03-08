@@ -6,6 +6,11 @@ jobs:
       vmImage: "Ubuntu 16.04"
     steps:
       - task: Bash@3
+        displayName: "Install npm dependencies"
+        inputs:
+          targetType: inline
+          script: "npm install"
+      - task: Bash@3
         displayName: "Run tests"
         inputs:
           targetType: inline
