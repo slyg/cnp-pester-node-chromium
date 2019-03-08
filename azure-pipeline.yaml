@@ -1,5 +1,15 @@
 name: Chromium Pester experiment
-trigger: none
+
+trigger:
+  branches:
+    include:
+      - refs/tags/*
+
+pr:
+  branches:
+    include:
+      - master
+
 jobs:
   - job: Main
     pool:
