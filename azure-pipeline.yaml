@@ -1,0 +1,13 @@
+name: Chromium Pester experiment
+trigger: none
+jobs:
+  - job: Main
+    pool:
+      vmImage: "Ubuntu 16.04"
+    steps:
+      - task: Bash@3
+        displayName: "Run tests"
+        inputs:
+          targetType: inline
+          script: |
+            pwsh -Command "Install-Module Pester -Force -Scope CurrentUser; Invoke-Pester @{Path= '$(Build.SourcesDirectory)/*.tests.ps1'; Parameters = @{AgentTempDirectory='$(Agent.TempDirectory)'}}"
