@@ -10,8 +10,8 @@ Describe 'Test suite' {
 
         $Env:DEBUG = "puppeteer:*,node:*"
 
-        It 'should be alrighty' {
-            echo $AgentTempDirectory
+        It 'AgentTempDirectory should exist' {
+            $AgentTempDirectory | Should -Exist
         }
     }
 }
