@@ -11,6 +11,8 @@ Describe 'Test suite' {
         $Env:DEBUG = "puppeteer:*,node:*"
 
         It 'AgentTempDirectory should exist' {
+            Write-Host "npm test..."
+            node test
             $AgentTempDirectory | Should -Exist
         }
     }
