@@ -13,7 +13,7 @@ pr:
 jobs:
   - job: Main
     pool:
-      vmImage: Ubuntu 16.04
+      vmImage: VS2017-Win2016
     steps:
       - task: Bash@3
         displayName: Install browser runtime dependencies
