@@ -13,15 +13,16 @@ pr:
 jobs:
   - job: Main
     pool:
-      vmImage: "Ubuntu 16.04"
+      vmImage: Ubuntu 16.04
     steps:
       - task: Bash@3
-        displayName: "Install npm dependencies"
+        displayName: Install browser runtime dependencies
         inputs:
           targetType: inline
-          script: "npm install"
+          script: npm install
+          workingDirectory: ./browser-scenario
       - task: PowerShell@2
-        displayName: "Run tests"
+        displayName: Run tests
         inputs:
           targetType: inline
           script: |

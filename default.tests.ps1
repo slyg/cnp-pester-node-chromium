@@ -13,7 +13,7 @@ Describe 'Test suite' {
 
         It 'AgentTempDirectory should exist' {
             Write-Host "$Tab$Tab$Tab Running node test command..."
-            node test
+            node browser-scenario
             $AgentTempDirectory | Should -Exist
         }
     }
