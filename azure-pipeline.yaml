@@ -16,15 +16,14 @@ jobs:
       vmImage: VS2017-Win2016
     steps:
       - task: Bash@3
-        displayName: Install browser runtime dependencies
+        displayName: Install browser instrumentation
         inputs:
           targetType: inline
           script: npm install
           workingDirectory: ./browser-scenario
-      - task: PowerShell@2
+
+      - powershell: Install-Module Pester -Force -Scope CurrentUser
+        displayName: Install Pester
+        
+      - powershell: Invoke-Pester @{Path= '$(Build.SourcesDirectory)/*.tests.ps1'; Parameters = @{AgentTempDirectory='$(Agent.TempDirectory)'}}
         displayName: Run tests
-        inputs:
-          targetType: inline
-          script: |
-            Install-Module Pester -Force -Scope CurrentUser;
-            Invoke-Pester @{Path= '$(Build.SourcesDirectory)/*.tests.ps1'; Parameters = @{AgentTempDirectory='$(Agent.TempDirectory)'}}

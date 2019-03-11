@@ -6,4 +6,4 @@ This pipeline experiments the use of:
 
 - Pester tests utility library written in Powershell
 - Pre-installed Chrome instrumentation via nodejs
-- What's above using the Windows pool (`VS2017` / Visual Studio 2017)
+- What's above using the Windows pool (`VS2017` / Visual Studio 2017) in Azure Devops
