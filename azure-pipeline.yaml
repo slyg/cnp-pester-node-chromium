@@ -20,12 +20,10 @@ jobs:
         inputs:
           targetType: inline
           script: "npm install"
-      - task: Bash@3
+      - task: PowerShell@2
         displayName: "Run tests"
         inputs:
           targetType: inline
           script: |
-            pwsh -Command " \
-              Install-Module Pester -Force -Scope CurrentUser; \
-              Invoke-Pester @{Path= '$(Build.SourcesDirectory)/*.tests.ps1'; Parameters = @{AgentTempDirectory='$(Agent.TempDirectory)'}} \
-              "
+            Install-Module Pester -Force -Scope CurrentUser;
+            Invoke-Pester @{Path= '$(Build.SourcesDirectory)/*.tests.ps1'; Parameters = @{AgentTempDirectory='$(Agent.TempDirectory)'}}
