@@ -5,16 +5,25 @@ param(
 )
 
 Describe 'Test suite' {
+    $Tab = [char]9
 
-    Context 'With puppeteer' {
+    Context 'AgentTempDirectory' {
 
-        $Env:DEBUG = "puppeteer:*,node:*"
-        $Tab = [char]9
-
-        It 'AgentTempDirectory should exist' {
-            Write-Host "$Tab$Tab$Tab Running node test command..."
-            node browser-scenario
+        It 'should exist' {
             $AgentTempDirectory | Should -Exist
+        }
+
+    }
+
+    Context 'Government webside' {
+
+        # Uncomment to see the logs
+        # $Env:DEBUG = "puppeteer:*,node:*"
+
+        It 'should have the right title' {
+            Write-Host "$Tab$Tab$Tab Running node test command..."
+            $PageTitle = node browser-scenario | select -Last 1
+            $PageTitle | Should -Be "Welcome to GOV.UK"
         }
     }
 }
